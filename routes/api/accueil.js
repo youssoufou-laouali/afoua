@@ -10,7 +10,7 @@ const validateAccueil = require('../../validation/accueil')
 const validatePerception = require('../../validation/perception')
 
 
-// Ajouter une consultation sur le mur accueil pour les agents de la perception
+// Ajouter une consultation sur le mur accueil destinée aux agents de la perception
 router.post('/add', auth, (req, res)=>{
 
     const token = req.headers.authorization.split(' ')[1];
@@ -24,13 +24,9 @@ router.post('/add', auth, (req, res)=>{
 
     const newAcceuil = new Accueil({
         demande: req.body.demande,
-        post: req.body.post,
-        price: req.body.price,
         assurencePriseEnCharge: req.body.assurencePriseEnCharge,
-        pourcentagePriseEnCharge: req.body.pourcentagePriseEnCharge,
         agentAccueil: decodedToken.id,
         patient: req.body.patient,
-        agentConsultant: req.body.agentConsultant,
     })    
 
     newAcceuil

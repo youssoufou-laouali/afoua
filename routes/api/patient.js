@@ -16,10 +16,7 @@ router.post('/verify', auth, (req, res)=>{
         return res.status(400).json(errors)
     }
 
-    Patient.find({phone: req.body.phone})
-    .populate({
-        path: 'createdBy', select: 'name lastName'
-    })
+    Patient.find({$or: [{name: req.body.name}, {lastName: req.body.lastName}]})
     .then(patient=>{
         if(patient){    
             return res.json({patient})

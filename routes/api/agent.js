@@ -190,7 +190,7 @@ router.post('/profil', auth, (req, res)=>{
 }) 
 
 // Reset Password
-router.post('/reset', auth, (req, res)=>{
+router.post('/password', auth, (req, res)=>{
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, 'SECRET_KEY');
 
@@ -215,6 +215,35 @@ router.post('/reset', auth, (req, res)=>{
         }
     }
 })
+
+//change Password Agent by administrateur
+router.post('/reset', auth, (req, res)=>{
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'SECRET_KEY');
+
+    if(!decodedToken.isAdmin){
+        return res.json({errors: 'Vous n\'avez pas le droit pour cette opération'})
+    }else{
+      
+        if(req.body.password){
+            bcrypt.genSalt(5, (err, salt)=> {
+                bcrypt.hash(req.body.password, salt, (err, hash)=> {
+                    const password= hash
+                    Agent.updateOne({phone: req.body.phone},
+                        {
+                            $set: {
+                                password: password
+                            }
+                        })
+                        .then(agent=> res.json({agent}))
+                        .catch(errors=> res.json({errors}))
+
+                });
+            });
+        }
+    }
+})
+
 
 // Supprimer un agent par un Admin
 router.post('/delete', auth, (req, res)=>{
