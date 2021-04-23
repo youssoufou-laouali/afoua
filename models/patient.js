@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
-const AgentSchema= new Schema({
+const patientSchema= new Schema({
     name:{
         type: String,
         required: true
@@ -19,13 +19,8 @@ const AgentSchema= new Schema({
     },
     password:{
         type: String,
-        required: true
     },
-    post:{
-        type: String,
-        required: true
-    },
-    date: {
+    dateCreation: {
         type: Date,
         default: Date.now
     },
@@ -33,26 +28,12 @@ const AgentSchema= new Schema({
         type: String
     },
     dateDeNaissance: {
-        type: String
-    },
-    debutContrat: {
         type: Date
-    },
-    finContrat: {
-        type: Date
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false
     },
     createdBy : {
         type : mongoose.Schema.Types.ObjectId,
         ref: "agent"
-    },
-    active: {
-        type: Boolean,
-        default: true
-    },
+    }
 })
 
-module.exports= Agent = mongoose.model('agent', AgentSchema )
+module.exports= Patient = mongoose.model('patient', patientSchema )
