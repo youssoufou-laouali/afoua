@@ -2,16 +2,19 @@ const express = require('express')
 const router= express.Router()
 const jwt= require('jsonwebtoken')
 const Accueil = require('../../models/accueil')
-const Medecingeneraliste = require('../../models/medecingeneraliste')
+const murGeant = require('../../models/murGeant')
 const auth = require('../../middleware/auth')
 
 // get pour les agents medecins
 router.get('/', auth, (req, res)=>{
-    Medecingeneraliste.find()
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'SECRET_KEY');
+
+    murGeant.find()
     .populate({
-        path: 'generaliste', select: 'demande patient agentConsultant',
+        path: 'geant',  select: 'demande patient agentConsultant post', match: {post: decodedToken.post },
         populate: {
-            path: 'patient agentConsultant', select: 'name lastName post',
+            path: 'patient', select: 'name lastName phone',
         }
     })
     .then(accueil=> res.json({accueil}))

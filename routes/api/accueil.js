@@ -4,7 +4,7 @@ const jwt= require('jsonwebtoken')
 const Accueil = require('../../models/accueil')
 const MurAccueil = require('../../models/murAccueil')
 const auth = require('../../middleware/auth')
-const Generaliste = require('../../models/medecingeneraliste')
+const MurGeant = require('../../models/murGeant')
 
 const validateAccueil = require('../../validation/accueil')
 const validatePerception = require('../../validation/perception')
@@ -70,19 +70,20 @@ router.post('/perception', auth, (req, res)=>{
                         paye: req.body.paye,
                         assurencePriseEnCharge: req.body.assurencePriseEnCharge,
                         pourcentagePriseEnCharge: req.body.pourcentagePriseEnCharge,
+                        post: req.body.post
                     }
             })
             .then(perception=> {
-               // if(perception.post== 'medecinGeneraliste'){
-                    const newMedecinGeneraliste= new Generaliste({
-                        generaliste: accueil._id
+               // if(req.body.post== 'medecinGeneraliste'){
+                    const newMurGeant= new MurGeant({
+                        geant: accueil._id
                     })
 
-                    newMedecinGeneraliste
+                    newMurGeant
                     .save()
-                    .then(generaliste=> {
-                        MurAccueil.findOneAndDelete({}, {accueil: accueil._id})
-                        .then(supprime => res.json({generaliste, supprime}))
+                    .then(geant=> {
+                        MurAccueil.findOneAndDelete({accueil: accueil._id})
+                        .then(supprime => res.json({geant, supprime}))
                     })
                     .catch(errors => res.json({errors}))
                // }

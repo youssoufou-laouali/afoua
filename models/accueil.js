@@ -38,6 +38,9 @@ const accueilSchema= new Schema({
     paye:{
         type: Number,
         
+    },
+    post:{
+        type: String, 
     }
 })
 

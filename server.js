@@ -8,7 +8,10 @@ const patient = require('./routes/api/patient')
 const interaction= require('./routes/api/interaction')
 const murAccueil= require('./routes/api/murAccueil')
 const accueil= require('./routes/api/accueil')
-const medecinGeneraliste= require('./routes/api/medecinGeneraiste')
+const murGeant= require('./routes/api/murGeant')
+const medicament= require('./routes/api/medicament')
+const compteRenduAccouchement= require('./routes/api/compteRenduAccouchement')
+const ordonnance= require('./routes/api/ordonnance')
 
 
 const port= process.env.PORT || 5000
@@ -36,8 +39,17 @@ app.use('/api/accueil', accueil)
 //mur Accueil
 app.use('/api/muraccueil', murAccueil)
 
-// medecin Generaliste
-app.use('/api/generaliste', medecinGeneraliste)
+// mur Geant
+app.use('/api/geant', murGeant)
+
+// medicament
+app.use('/api/medicament', medicament)
+
+//ordonnance
+app.use('/api/ordonnance', ordonnance)
+
+//Compte rendu d'accouchement
+app.use('/api/cra', compteRenduAccouchement)
 
 
 app.listen(port, ()=> console.log('serveur started on ', port))

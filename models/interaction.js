@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
-const interactionSchema= new Schema({
+const InteractionSchema= new Schema({
     label:{
         type: String,
         required: true
@@ -24,4 +24,4 @@ const interactionSchema= new Schema({
     }
 })
 
-module.exports= Interaction = mongoose.model('interaction', interactionSchema )
+module.exports= Interaction = mongoose.model('interaction', InteractionSchema )
