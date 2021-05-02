@@ -11,7 +11,7 @@ module.exports =  function validateAgent(data) {
         errors.phone = 'le numéro de téléphone ne peut être que 8 caractères'
     }
     if(!Validator.isLength(data.password, { min: 6, max: 20})){
-        errors.phone = 'le mot de passe ne peut pas contenir moins de 6 caractères'
+        errors.password = 'le mot de passe ne peut pas contenir moins de 6 caractères'
     }
 
     if(Validator.isEmpty(data.phone)){

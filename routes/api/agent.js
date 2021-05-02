@@ -212,6 +212,8 @@ router.post('/password', auth, (req, res)=>{
 
                 });
             });
+        }else{
+            res.json({errors:'Veillez taper le nouveau mot de passe'})
         }
     }
 })
@@ -225,11 +227,11 @@ router.post('/reset', auth, (req, res)=>{
         return res.json({errors: 'Vous n\'avez pas le droit pour cette opération'})
     }else{
       
-        if(req.body.password){
+        if(req.body.id){
             bcrypt.genSalt(5, (err, salt)=> {
                 bcrypt.hash(req.body.password, salt, (err, hash)=> {
                     const password= hash
-                    Agent.updateOne({phone: req.body.phone},
+                    Agent.updateOne({_id: req.body.id},
                         {
                             $set: {
                                 password: password
@@ -291,4 +293,6 @@ router.get('/agent', auth, (req, res)=>{
         .catch(errors=> res.json({errors}))
     }
 })
+
+
 module.exports = router

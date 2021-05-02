@@ -12,6 +12,7 @@ const murGeant= require('./routes/api/murGeant')
 const medicament= require('./routes/api/medicament')
 const compteRenduAccouchement= require('./routes/api/compteRenduAccouchement')
 const ordonnance= require('./routes/api/ordonnance')
+const postAgent= require('./routes/api/postAgent')
 
 
 const port= process.env.PORT || 5000
@@ -51,5 +52,7 @@ app.use('/api/ordonnance', ordonnance)
 //Compte rendu d'accouchement
 app.use('/api/cra', compteRenduAccouchement)
 
+//posts
+app.use('/api/post', postAgent)
 
 app.listen(port, ()=> console.log('serveur started on ', port))
