@@ -13,6 +13,7 @@ module.exports =  function validatePatient(data) {
     if(Validator.isEmpty(data.lastName)){
         errors.lastName= 'le nom de famille ne peut pas être vide'
     }   
+    
 
     return {
         errors,

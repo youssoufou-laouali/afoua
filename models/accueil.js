@@ -36,8 +36,7 @@ const accueilSchema= new Schema({
         type: Number
     },
     paye:{
-        type: Number,
-        
+        type: Number,  
     },
     post:{
         type: String, 

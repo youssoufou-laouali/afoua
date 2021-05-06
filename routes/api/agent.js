@@ -9,6 +9,8 @@ const validateAgentLogin = require('../../validation/agentLogin')
 const validateAgentRegistration = require('../../validation/agentRegistration')
 const validateAgentUpdate = require('../../validation/agentUpdate')
 
+
+
 // Creer un administrateur par un super-admin
 router.post('/admin', auth, (req, res)=>{
     const token = req.headers.authorization.split(' ')[1];

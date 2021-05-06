@@ -38,7 +38,7 @@ router.post('/add', auth, (req, res)=>{
 
         addMurAccueil
         .save()
-        .then(mur=> res.status(201).json({accueil}))
+        .then(mur => res.status(201).json({accueil}))
         .catch(errors => res.json({errors}))
     })
     .catch(errors=> res.json({errors}))

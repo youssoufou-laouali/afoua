@@ -16,7 +16,7 @@ router.post('/verify', auth, (req, res)=>{
         return res.status(400).json(errors)
     }
 
-    Patient.find({$or: [{name: req.body.name}, {lastName: req.body.lastName}]})
+    Patient.find({$or: [{name: { $regex: req.body.name }}, {lastName: { $regex: req.body.lastName }}]})
     .then(patient=>{
         if(patient){    
             return res.json({patient})
