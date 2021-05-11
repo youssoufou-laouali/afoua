@@ -1,13 +1,19 @@
 const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
-const CertificatVisiteMedicaleSchema= new Schema({
-    lieuNaissance:{
+const CertificatGrossesseSchema= new Schema({
+    grossesse:{
         type: String
+    },
+    semaine:{
+        type: Number
     },
     date: {
         type: Date,
         default: Date.now
+    },
+    datePrevuAccouchement: {
+        type: Date
     },
     createdBy : {
         type : mongoose.Schema.Types.ObjectId,
@@ -19,4 +25,4 @@ const CertificatVisiteMedicaleSchema= new Schema({
     },
 })
 
-module.exports= CertificatVisiteMedicale = mongoose.model('certificatvisitemedicale', CertificatVisiteMedicaleSchema )
+module.exports= CertificatGrossesse = mongoose.model('certificatgrossesse', CertificatGrossesseSchema )

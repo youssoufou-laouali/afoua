@@ -7,7 +7,7 @@ const SoinsUrgenceSchema= new Schema({
             type: String
         },
         quantite:{
-            type: String
+            type: Number
         }
     }],
     

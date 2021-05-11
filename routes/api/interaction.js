@@ -61,7 +61,7 @@ router.get('/accueil', auth, (req, res)=>{
 
 //recuperer les libellés à la perception
 router.get('/perception', auth, (req, res)=>{
-    Interaction.find({}, {label:1, price:1, _id:0})
+    Interaction.find({})
     .then(interaction=> res.json({interaction}))
     .catch(errors=> res.json({errors}))
 })
@@ -84,7 +84,7 @@ router.post('/update', auth, (req, res)=>{
                 return res.status(400).json(errors)
             }
 
-            Interaction.updateOne({label: req.body.label}, 
+            Interaction.updateOne({_id: req.body.id}, 
                 { $set:
                     {
                         label: req.body.label,

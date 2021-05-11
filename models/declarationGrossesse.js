@@ -30,9 +30,6 @@ const DeclarationGrossesseSchema= new Schema({
     nomEmployeur: {
         type: String
     },
-    femme: {
-        type: String
-    },
     delivree: {
         type: String
     },

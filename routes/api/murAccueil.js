@@ -11,8 +11,9 @@ router.get('/', auth, (req, res)=>{
     .populate({
         path: 'accueil',
         populate: {
-            path: 'patient agentConsultant', select: 'name lastName post',
-        }
+            path: 'patient agentConsultant', select: 'name lastName  post',
+        },
+        select: ''
     })
     .then(accueil=> res.json({accueil}))
     .catch(errors=> res.json({errors}))

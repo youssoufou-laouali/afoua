@@ -12,7 +12,8 @@ router.get('/', auth, (req, res)=>{
 
     murGeant.find()
     .populate({
-        path: 'geant',  select: 'demande patient agentConsultant post', match: {post: decodedToken.post },
+        path: 'geant',  select: 'demande patient post',
+        // match: {post: decodedToken.post },
         populate: {
             path: 'patient', select: 'name lastName phone',
         }
