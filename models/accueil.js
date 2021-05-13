@@ -20,6 +20,10 @@ const accueilSchema= new Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: "agent"
     },
+    module : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "module"
+    },
     patient : {
         type : mongoose.Schema.Types.ObjectId,
         ref: "patient"

@@ -7,6 +7,10 @@ const moduleSchema= new Schema({
         type: Date,
         default: Date.now
     },
+    patient:{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "patient"
+    },
     avisHospitalisation : {
         type : mongoose.Schema.Types.ObjectId,
         ref: "avishospitalisation"
