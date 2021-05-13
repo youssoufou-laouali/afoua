@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
-const echoVesicoProstatiqueSchema= new Schema({
+const echographieAbdominaleSchema= new Schema({
     indications:{
         type: String
     },
@@ -131,4 +131,4 @@ const echoVesicoProstatiqueSchema= new Schema({
     },
 })
 
-module.exports= EchoVesicoProstatiqueSchema = mongoose.model('echoVesicoProstatique', echoVesicoProstatiqueSchema)
+module.exports= echographieAbdominale = mongoose.model('echographieabdominale', echographieAbdominaleSchema)

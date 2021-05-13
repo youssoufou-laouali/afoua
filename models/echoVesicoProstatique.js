@@ -46,4 +46,4 @@ const echoVesicoProstatiqueSchema= new Schema({
     },
 })
 
-module.exports= EchoVesicoProstatiqueSchema = mongoose.model('echoVesicoProstatique', echoVesicoProstatiqueSchema)
+module.exports= EchoVesicoProstatique = mongoose.model('echovesicoprostatique', echoVesicoProstatiqueSchema)

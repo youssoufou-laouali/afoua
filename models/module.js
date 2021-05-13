@@ -2,46 +2,78 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const moduleSchema= new Schema({
-    perception:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-        }
-    ],
-    assurencePriseEnCharge:{
-        type: String,
-    },
-    pourcentagePriseEnCharge:{
-        type: Number,
-    },
+    
     date: {
         type: Date,
         default: Date.now
     },
-    agentAccueil : {
+    avisHospitalisation : {
         type : mongoose.Schema.Types.ObjectId,
-        ref: "agent"
+        ref: "avishospitalisation"
     },
-    patient : {
+    billetDeSortie : {
         type : mongoose.Schema.Types.ObjectId,
-        ref: "patient"
+        ref: "billetdesortie"
     },
-    agentConsultant :{
+    bulletinExamen :{
         type : mongoose.Schema.Types.ObjectId,
-        ref: "agent"
+        ref: "bulletinexamen"
     },
-    agentPerception :{
+    certificatAccouchement :{
         type : mongoose.Schema.Types.ObjectId,
-        ref: "agent"
+        ref: "certificataccouchement"
     },
-    price:{
-        type: Number
+    certificatGrossesse :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "certificatgrossesse"
     },
-    paye:{
-        type: Number,  
+    certificatMedical :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "certificatmedical"
     },
-    post:{
-        type: String, 
-    }
+    compteRenduAccouchement :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "compterenduaccouchement"
+    },
+    compteRenduHospitalisation :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "compterenduhospitalisation"
+    },
+    decharge :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "decharge"
+    },
+    declarationGrossesse :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "declarationgrossesse"
+    },
+    dossier :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "dossier"
+    },
+    echographieAbdominale :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "echographieabdominale"
+    },
+    echoVesicoProstatique :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "echovesicoprostatique"
+    },
+    infirmiere :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "infirmiere"
+    },
+    soinsUrgence :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "soinsurgence"
+    },
+    
+    ordonnances:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'ordonnance'
+        }
+    ],
 })
 
 module.exports= Module = mongoose.model('module', moduleSchema )
