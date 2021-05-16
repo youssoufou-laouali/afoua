@@ -35,6 +35,10 @@ const moduleSchema= new Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: "certificatmedical"
     },
+    certificatVisiteMedicale :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "certificatvisitemedicale"
+    },
     compteRenduAccouchement :{
         type : mongoose.Schema.Types.ObjectId,
         ref: "compterenduaccouchement"
@@ -42,6 +46,10 @@ const moduleSchema= new Schema({
     compteRenduHospitalisation :{
         type : mongoose.Schema.Types.ObjectId,
         ref: "compterenduhospitalisation"
+    },
+    createdBy : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "agent"
     },
     decharge :{
         type : mongoose.Schema.Types.ObjectId,

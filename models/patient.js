@@ -30,6 +30,9 @@ const patientSchema= new Schema({
     dateDeNaissance: {
         type: Date
     },
+    lieuDeNaissance: {
+        type: String
+    },
     createdBy : {
         type : mongoose.Schema.Types.ObjectId,
         ref: "agent"

@@ -5,7 +5,7 @@ const Accueil = require('../../models/accueil')
 const MurAccueil = require('../../models/murAccueil')
 const auth = require('../../middleware/auth')
 const MurGeant = require('../../models/murGeant')
-const Module = require('../../models/module')
+const Module= require('../../models/module')
 
 const validateAccueil = require('../../validation/accueil')
 const validatePerception = require('../../validation/perception')
@@ -59,25 +59,11 @@ router.post('/perception', auth, (req, res)=>{
         return res.status(400).json(errors)
     }
 
-    
-
     Accueil.findOne({_id: req.body.id})
     .then(accueil=> {
         if(accueil) {
-            let moduleId;
             if(req.body.module){
-                moduleId= req.body.module
-            }else{
-                const newModule= new Module({
-                    patient: req.body.patient
-                })
-    
-                newModule.save()
-                .then(module=> {
-                    moduleId= module._id
-                })
-                .catch(errors=> res.json({errors}))
-            }
+
             Accueil.updateOne({_id: req.body.id},
                 { $set:
                     {
@@ -87,7 +73,7 @@ router.post('/perception', auth, (req, res)=>{
                         assurencePriseEnCharge: req.body.assurencePriseEnCharge,
                         pourcentagePriseEnCharge: req.body.pourcentagePriseEnCharge,
                         post: req.body.post,
-                        module: newModule
+                        module: req.body.module
                     }
             })
             .then(perception=> {
@@ -106,14 +92,52 @@ router.post('/perception', auth, (req, res)=>{
                // }
             })
             .catch(errors=> res.json({errors}))
-        
+        }else{
+
+            const newModule= new Module({
+                patient: accueil.patient
+            })
+
+            newModule.save()
+            .then(module=>{
+
+                Accueil.updateOne({_id: req.body.id},
+                { $set:
+                    {
+                        agentPerception: decodedToken.id,
+                        price: req.body.price,
+                        paye: req.body.paye,
+                        assurencePriseEnCharge: req.body.assurencePriseEnCharge,
+                        pourcentagePriseEnCharge: req.body.pourcentagePriseEnCharge,
+                        post: req.body.post,
+                        module: module._id
+                    }
+                })
+                .then(perception=> {
+               // if(req.body.post== 'medecinGeneraliste'){
+                    const newMurGeant= new MurGeant({
+                        geant: accueil._id
+                    })
+
+                    newMurGeant
+                    .save()
+                    .then(geant=> {
+                        MurAccueil.findOneAndDelete({accueil: accueil._id})
+                        .then(supprime => res.json({geant, supprime}))
+                    })
+                    .catch(errors => res.json({errors}))
+               // }
+                })
+            })
+            .catch(errors=> res.json({errors}))
+        }
         }else{
             res.json({errors: 'rien trouver'})
         }
-    
     })
     .catch(errors=>res.json({errors}))
-  
+   
+
 })
 
 module.exports = router

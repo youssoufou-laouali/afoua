@@ -2,13 +2,7 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const CertificatVisiteContreVisiteSchema= new Schema({
-    lieuNaissance:{
-        type: String
-    },
-    dateNaissance:{
-        type: Date
-    },
-
+  
     date: {
         type: Date,
         default: Date.now

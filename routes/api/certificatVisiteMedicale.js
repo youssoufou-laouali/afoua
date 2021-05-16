@@ -11,7 +11,6 @@ router.post('/add', auth, (req, res)=>{
     const decodedToken = jwt.verify(token, 'SECRET_KEY');
 
     const newCertificatVisiteMedicale= new CertificatVisiteMedicale({
-        soussigne: req.body.soussigne,
         createdBy: decodedToken.id,
         patient: req.body.patient
     })

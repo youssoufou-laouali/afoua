@@ -2,9 +2,6 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const CertificatVisiteMedicaleSchema= new Schema({
-    lieuNaissance:{
-        type: String
-    },
     date: {
         type: Date,
         default: Date.now

@@ -16,6 +16,9 @@ const medicament= require('./routes/api/medicament')
 const compteRenduAccouchement= require('./routes/api/compteRenduAccouchement')
 const ordonnance= require('./routes/api/ordonnance')
 const postAgent= require('./routes/api/postAgent')
+const certificatVisiteMedicale= require('./routes/api/certificatVisiteMedicale')
+const modules = require('./routes/api/module')
+const certificatVisiteContreVisite= require('./routes/api/certificatVisiteContreVisiteMedicale')
 
 
 const port= process.env.PORT || 5000
@@ -63,6 +66,15 @@ app.use('/api/cra', compteRenduAccouchement)
 //posts
 app.use('/api/post', postAgent)
 
+//certificatVisiteMedicale
+app.use('/certificatvisitemedicale', certificatVisiteMedicale)
+
+//Module
+app.use('/module', modules)
+
+//certificatVisiteContreVisite
+app.use('/certificatvisitecontrevisite', certificatVisiteContreVisite)
+
 const server =http.createServer(app)
 const io = soketIo(server, 
 {
@@ -79,6 +91,10 @@ io.on('connection', (socket) => {
 
     socket.on("accueil", data =>{
         socket.broadcast.emit("muraccueil", data)
+    })
+
+    socket.on("perception", data=>{
+        socket.broadcast.emit("murgeant", data)
     })
 
 

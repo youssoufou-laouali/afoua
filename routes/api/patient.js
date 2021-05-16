@@ -66,20 +66,27 @@ router.post('/update', auth, (req, res)=>{
         return res.status(400).json(errors)
     }
 
-    const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'SECRET_KEY');
+    let patient={}
+    
+    if(req.body.name){
+        patient.name= req.body.name;
+    }
+    if(req.body.lastName){
+        patient.lastName= req.body.lastName
+    }
+    if(req.body.dateDeNaissance){
+        patient.dateDeNaissance= req.body.dateDeNaissance
+    }
+    if(req.body.lieuDeNaissance){
+        patient.lieuDeNaissance= req.body.lieuDeNaissance
+    }
+    if(req.body.email){
+        patient.email= req.body.email
+    }
 
     Patient.updateOne({_id: req.body.id},
         { $set:
-            {
-                name: req.body.name,
-                lastName: req.body.lastName,
-                email: req.body.email,
-                phone: req.body.phone,
-                urlPhoto: req.body.urlPhoto,
-                dateDeNaissance: req.body.dateDeNaissance,
-                createdBy: decodedToken.id
-            }
+            patient
         })
         .then(agent=> res.json({agent}))
         .catch(errors=> res.json({errors}))
