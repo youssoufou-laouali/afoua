@@ -16,12 +16,21 @@ const DechargeSchema= new Schema({
         ref: "patient"
     },
     
-    soussigne :{
-        type : String
-    },
     responsable: {
         type: String
     },
+
+    typeResponsable:{
+        malade:{
+            type: Boolean
+        },
+        parent:{
+            type: Boolean
+        },
+        accompagnant:{
+            type: Boolean
+        }
+    }
     
    
 })

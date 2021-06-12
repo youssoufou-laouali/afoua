@@ -3,14 +3,20 @@ const Schema= mongoose.Schema
 
 const accueilSchema= new Schema({
     demande:{
-        type: String,
+        type: Array,
         required: true
     },
     assurencePriseEnCharge:{
         type: String,
     },
-    pourcentagePriseEnCharge:{
+    pourcentage:{
         type: Number,
+    },
+    numPC:{
+        type: String,
+    },
+    police:{
+        type: String,
     },
     date: {
         type: Date,
@@ -36,11 +42,8 @@ const accueilSchema= new Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: "agent"
     },
-    price:{
+    montant:{
         type: Number
-    },
-    paye:{
-        type: Number,  
     },
     post:{
         type: String, 

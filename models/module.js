@@ -7,6 +7,10 @@ const moduleSchema= new Schema({
         type: Date,
         default: Date.now
     },
+    perception:{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "accueil"
+    },
     patient:{
         type : mongoose.Schema.Types.ObjectId,
         ref: "patient"
@@ -38,6 +42,10 @@ const moduleSchema= new Schema({
     certificatVisiteMedicale :{
         type : mongoose.Schema.Types.ObjectId,
         ref: "certificatvisitemedicale"
+    },
+    certificatVisiteContreVisite :{
+        type : mongoose.Schema.Types.ObjectId,
+        ref: "certificatvisitecontrevisite"
     },
     compteRenduAccouchement :{
         type : mongoose.Schema.Types.ObjectId,

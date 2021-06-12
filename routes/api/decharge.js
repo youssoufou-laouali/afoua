@@ -13,8 +13,8 @@ router.post('/add', auth, (req, res)=>{
     const newElement= new Decharge({
         createdBy: decodedToken.id,
         patient: req.body.id,
-        soussigne: req.body.soussigne,
-        responsable: req.body.responsable
+        responsable: req.body.responsable,
+        typeResponsable: req.body.typeResponsable
     })
 
     newElement.save()

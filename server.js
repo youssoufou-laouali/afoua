@@ -19,6 +19,7 @@ const postAgent= require('./routes/api/postAgent')
 const certificatVisiteMedicale= require('./routes/api/certificatVisiteMedicale')
 const modules = require('./routes/api/module')
 const certificatVisiteContreVisite= require('./routes/api/certificatVisiteContreVisiteMedicale')
+const decharge = require('./routes/api/decharge')
 
 
 const port= process.env.PORT || 5000
@@ -74,6 +75,9 @@ app.use('/module', modules)
 
 //certificatVisiteContreVisite
 app.use('/certificatvisitecontrevisite', certificatVisiteContreVisite)
+
+//decharge
+app.use('/decharge', decharge)
 
 const server =http.createServer(app)
 const io = soketIo(server, 

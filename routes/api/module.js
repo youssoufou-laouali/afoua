@@ -32,6 +32,9 @@ router.post('/update', auth, (req, res)=>{
         if(req.body.certificatVisiteMedicale){
             data.certificatVisiteMedicale= req.body.certificatVisiteMedicale
         }
+        if(req.body.certificatVisiteContreVisite){
+            data.certificatVisiteContreVisite= req.body.certificatVisiteContreVisite
+        }
         if(req.body.compteRenduAccouchement){
             data.compteRenduAccouchement= req.body.compteRenduAccouchement
         }

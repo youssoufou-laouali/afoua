@@ -68,11 +68,13 @@ router.post('/perception', auth, (req, res)=>{
                 { $set:
                     {
                         agentPerception: decodedToken.id,
-                        price: req.body.price,
-                        paye: req.body.paye,
+                        demande: req.body.demande,
+                        montant: req.body.montant,
                         assurencePriseEnCharge: req.body.assurencePriseEnCharge,
-                        pourcentagePriseEnCharge: req.body.pourcentagePriseEnCharge,
+                        pourcentage: req.body.pourcentage,
                         post: req.body.post,
+                        numPC: req.body.numPC,
+                        police: req.body.police,
                         module: req.body.module
                     }
             })
@@ -95,7 +97,8 @@ router.post('/perception', auth, (req, res)=>{
         }else{
 
             const newModule= new Module({
-                patient: accueil.patient
+                patient: accueil.patient,
+                perception: req.body.id
             })
 
             newModule.save()
@@ -105,11 +108,13 @@ router.post('/perception', auth, (req, res)=>{
                 { $set:
                     {
                         agentPerception: decodedToken.id,
-                        price: req.body.price,
-                        paye: req.body.paye,
+                        demande: req.body.demande,
+                        montant: req.body.montant,
                         assurencePriseEnCharge: req.body.assurencePriseEnCharge,
-                        pourcentagePriseEnCharge: req.body.pourcentagePriseEnCharge,
+                        pourcentage: req.body.pourcentage,
                         post: req.body.post,
+                        numPC: req.body.numPC,
+                        police: req.body.police,
                         module: module._id
                     }
                 })
