@@ -16,7 +16,7 @@ router.post('/verify', auth, (req, res)=>{
         return res.status(400).json(errors)
     }
 
-    Patient.find({$or: [{name: { $regex: req.body.name }}, {lastName: { $regex: req.body.lastName }}]})
+    Patient.find({$and: [{name: { $regex: req.body.name }}, {lastName: { $regex: req.body.lastName }}]})
     .then(patient=>{
         if(patient){    
             return res.json({patient})
@@ -82,6 +82,12 @@ router.post('/update', auth, (req, res)=>{
     }
     if(req.body.email){
         patient.email= req.body.email
+    }
+    if(req.body.adresse){
+        patient.adresse= req.body.adresse
+    }
+    if(req.body.phone){
+        patient.phone= req.body.phone
     }
 
     Patient.updateOne({_id: req.body.id},

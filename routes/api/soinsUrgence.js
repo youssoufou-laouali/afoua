@@ -10,7 +10,7 @@ router.post('/add', auth, (req, res)=>{
     const decodedToken = jwt.verify(token, 'SECRET_KEY');
 
     const newSoinsUrgence= new SoinsUrgence({
-        designation: req.body.designation,
+        demande: req.body.demande,
         createdBy: decodedToken.id,
         patient: req.body.id
     })

@@ -12,11 +12,11 @@ router.get('/', auth, (req, res)=>{
 
     murGeant.find()
     .populate({
-        path: 'geant',  select: 'demande patient post module',
+        path: 'geant',
         // match: {post: decodedToken.post },
         populate: {
             path: 'patient', select: 'name lastName phone dateDeNaissance lieuDeNaissance',
-        }
+        },
     })
     .then(accueil=> res.json({accueil}))
     .catch(errors=> res.json({errors}))

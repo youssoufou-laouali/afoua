@@ -2,17 +2,17 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const CertificatGrossesseSchema= new Schema({
-    grossesse:{
-        type: String
+    nbreSemaine:{
+        type: Number
     },
-    semaine:{
+    nbreMois:{
         type: Number
     },
     date: {
         type: Date,
         default: Date.now
     },
-    datePrevuAccouchement: {
+    datePrevu: {
         type: Date
     },
     createdBy : {

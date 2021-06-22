@@ -15,9 +15,6 @@ const CompteRenduHospitalisationSchema= new Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: "patient"
     },
-    age: {
-        type: Number,
-    },
     sexe:{
         type: String
     },
@@ -30,20 +27,19 @@ const CompteRenduHospitalisationSchema= new Schema({
     finHospitalisation:{
         type: Date
     },
-    personnels:{
-        
-        medicale:{
-            type: String
-        },
-
-        chururgical:{
-            type: String
-        },
-        
-        gynecoObstretrique:{
-            type: String
-        },
+      
+    medicale:{
+        type: String
     },
+
+    chururgical:{
+        type: String
+    },
+    
+    gynecoObstretrique:{
+        type: String
+    },
+    
     familiers:{
         type: String
     },

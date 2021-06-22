@@ -12,7 +12,8 @@ router.post('/add', auth, (req, res)=>{
 
     const newCertificatVisiteMedicale= new CertificatVisiteMedicale({
         createdBy: decodedToken.id,
-        patient: req.body.patient
+        patient: req.body.patient,
+        justification: req.body.justification
     })
 
     newCertificatVisiteMedicale.save()

@@ -14,6 +14,9 @@ const CertificatVisiteMedicaleSchema= new Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: "patient"
     },
+    justification: {
+        type: String
+    }
 })
 
 module.exports= CertificatVisiteMedicale = mongoose.model('certificatvisitemedicale', CertificatVisiteMedicaleSchema )

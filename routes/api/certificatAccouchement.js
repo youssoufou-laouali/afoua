@@ -12,19 +12,19 @@ router.post('/add', auth, (req, res)=>{
     const decodedToken = jwt.verify(token, 'SECRET_KEY');
 
     const newCertificatAccouchement= new CertificatAccouchement({
-        nomme: req.body.nomme,
+        
         profession: req.body.profession,
         mle: req.body.mle,
-        dateAcouchement: req.body.dateAcouchement,
+        dateAccouchement: req.body.dateAccouchement,
         sexe: req.body.sexe,
-        fils: req.body.fils,
+        prenom: req.body.prenom,
         pere: req.body.pere,
         createdBy: decodedToken.id,
         patient: req.body.patient
     })
 
     newCertificatAccouchement.save()
-    .then(response=> res.json({certificatAccouchement: response}))
+    .then(response=> res.json( response))
     .catch(errors=> res.json({errors}))
 })
 
@@ -32,7 +32,7 @@ router.post('/add', auth, (req, res)=>{
 
 router.post('/', auth, (req, res)=>{
     CertificatAccouchement.find({patient: req.body.patient})
-    .then(response=> res.json({certificatAccouchement: response}))
+    .then(response=> res.json( response))
     .catch(errors=> res.json({errors}))
 })
 

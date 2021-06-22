@@ -2,9 +2,7 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const CertificatAccouchementSchema= new Schema({
-    nomme:{
-        type: String
-    },
+    
     profession:{
         type: String,
     },
@@ -15,13 +13,13 @@ const CertificatAccouchementSchema= new Schema({
     mle: {
         type: String
     },
-    dateAcouchement: {
+    dateAccouchement: {
         type: Date
     },
     sexe: {
         type: String
     },
-    fils: {
+    prenom: {
         type: String
     },
     pere: {

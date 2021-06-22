@@ -2,14 +2,9 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const SoinsUrgenceSchema= new Schema({
-    designation:[{
-        produit:{
-            type: String
-        },
-        quantite:{
-            type: Number
-        }
-    }],
+    demande:[
+        
+    ],
     
     date: {
         type: Date,

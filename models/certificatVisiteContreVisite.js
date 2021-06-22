@@ -7,6 +7,12 @@ const CertificatVisiteContreVisiteSchema= new Schema({
         type: Date,
         default: Date.now
     },
+    justification1:{
+        type: String
+    },
+    justification2:{
+        type: String
+    },
     createdBy : {
         type : mongoose.Schema.Types.ObjectId,
         ref: "agent"

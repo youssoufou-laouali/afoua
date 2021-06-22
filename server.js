@@ -17,9 +17,14 @@ const compteRenduAccouchement= require('./routes/api/compteRenduAccouchement')
 const ordonnance= require('./routes/api/ordonnance')
 const postAgent= require('./routes/api/postAgent')
 const certificatVisiteMedicale= require('./routes/api/certificatVisiteMedicale')
+const certificatMedical= require('./routes/api/certificatMedical')
 const modules = require('./routes/api/module')
 const certificatVisiteContreVisite= require('./routes/api/certificatVisiteContreVisiteMedicale')
 const decharge = require('./routes/api/decharge')
+const soinsurgence = require('./routes/api/soinsUrgence')
+const compteRenduHospitalisation = require('./routes/api/compteRenduHospitalisation')
+const certificatGrossesse= require('./routes/api/certificatGrossesse')
+const certificatAccouchement= require('./routes/api/certificatAccouchement')
 
 
 const port= process.env.PORT || 5000
@@ -78,6 +83,21 @@ app.use('/certificatvisitecontrevisite', certificatVisiteContreVisite)
 
 //decharge
 app.use('/decharge', decharge)
+
+//certificatMedical
+app.use('/certificatmedical', certificatMedical)
+
+//soinsUrgence
+app.use('/soinsurgence', soinsurgence)
+
+//compteRenduHospitalisation
+app.use('/compterenduhospitalisation', compteRenduHospitalisation)
+
+//certificatGrossesse
+app.use('/certificatgrossesse', certificatGrossesse)
+
+//certificatAccouchement
+app.use('/certificataccouchement', certificatAccouchement)
 
 const server =http.createServer(app)
 const io = soketIo(server, 
