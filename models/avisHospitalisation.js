@@ -28,11 +28,14 @@ const AvisHospitalisationSchema= new Schema({
     societe: {
         type: String
     },
-    diagnosticCliniqueEntree: {
+    diagnostic: {
         type: String
     },
     dateHospitalisation: {
         type: Date
+    },
+    timeHospitalisation: {
+        type: String
     },
     dureeHospitalisation: {
         type: Number

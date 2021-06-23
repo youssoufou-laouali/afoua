@@ -15,7 +15,7 @@ const CompteRenduAccouchementSchema= new Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: "patient"
     },
-    text: {
+    cra: {
         type: String,
         require: true
     }

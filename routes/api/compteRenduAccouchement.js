@@ -13,7 +13,7 @@ router.post('/add', auth, (req, res)=>{
     const newElement= new CompteRenduAccouchement({
         createdBy: decodedToken.id,
         patient: req.body.id,
-        text: req.body.text
+        cra: req.body.cra
     })
 
     newElement.save()

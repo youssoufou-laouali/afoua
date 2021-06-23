@@ -18,8 +18,9 @@ router.post('/add', auth, (req, res)=>{
         numAssure: req.body.numAssure,
         nomAssure: req.body.nomAssure,
         societe: req.body.societe,
-        diagnosticCliniqueEntree: req.body.diagnosticCliniqueEntree,
+        diagnostic: req.body.diagnostic,
         dateHospitalisation: req.body.dateHospitalisation,
+        timeHospitalisation: req.body.timeHospitalisation,
         dureeHospitalisation: req.body.dureeHospitalisation,
     })
 

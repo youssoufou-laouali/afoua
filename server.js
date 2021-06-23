@@ -25,7 +25,7 @@ const soinsurgence = require('./routes/api/soinsUrgence')
 const compteRenduHospitalisation = require('./routes/api/compteRenduHospitalisation')
 const certificatGrossesse= require('./routes/api/certificatGrossesse')
 const certificatAccouchement= require('./routes/api/certificatAccouchement')
-
+const avisHospitalisation = require('./routes/api/avisHospitalisation')
 
 const port= process.env.PORT || 5000
  
@@ -98,6 +98,9 @@ app.use('/certificatgrossesse', certificatGrossesse)
 
 //certificatAccouchement
 app.use('/certificataccouchement', certificatAccouchement)
+
+//avisHospitalisation
+app.use('/avishospitalisation', avisHospitalisation)
 
 const server =http.createServer(app)
 const io = soketIo(server, 
