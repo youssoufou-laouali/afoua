@@ -5,9 +5,7 @@ const echoVesicoProstatiqueSchema= new Schema({
     renseignementClinique:{
         type: String
     },
-    age:{
-        type: Number
-    },
+    
     prostate:{
         type: String
     },

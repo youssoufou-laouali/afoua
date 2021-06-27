@@ -5,7 +5,13 @@ const BilletDeSortieSchema= new Schema({
     visiteRetour:{
         type: Date
     },
-    ordonnanceSortie:{
+    ordonnanceSortie1:{
+        type: String,
+    },
+    ordonnanceSortie2:{
+        type: String,
+    },
+    ordonnanceSortie3:{
         type: String,
     },
     date: {
@@ -19,7 +25,7 @@ const BilletDeSortieSchema= new Schema({
         type: String
     },
     dureeHospitalisation: {
-        type: Number
+        type: String
     },
     finPeriode: {
         type: Date

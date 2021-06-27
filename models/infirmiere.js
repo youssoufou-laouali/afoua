@@ -6,10 +6,7 @@ const infirmiereSchema= new Schema({
         type:String
     },
     poids:{
-        type: Number
-    },
-    age:{
-        type: Number
+        type: String
     },
     chambre:{
         type: String
@@ -19,115 +16,89 @@ const infirmiereSchema= new Schema({
             labbel:{
                 type: String
             },
-            j1:{
-                matin:{
-                    type:String
-                },
-                midi:{
-                    type: String
-                }, 
-                Soir:{
-                    type: String
-                }
+            j1matin:{
+                type: Boolean
             },
-            j2:{
-                matin:{
-                    type:String
-                },
-                midi:{
-                    type: String
-                }, 
-                Soir:{
-                    type: String
-                }
+            j1midi:{
+                type: Boolean
             },
-            j3:{
-                matin:{
-                    type:String
-                },
-                midi:{
-                    type: String
-                }, 
-                Soir:{
-                    type: String
-                }
+            j1soir:{
+                type: Boolean
             },
-            j4:{
-                matin:{
-                    type:String
-                },
-                midi:{
-                    type: String
-                }, 
-                Soir:{
-                    type: String
-                }
+            j2matin:{
+                type: Boolean
             },
-            j5:{
-                matin:{
-                    type:String
-                },
-                midi:{
-                    type: String
-                }, 
-                Soir:{
-                    type: String
-                }
+            j2midi:{
+                type: Boolean
             },
-            j6:{
-                matin:{
-                    type:String
-                },
-                midi:{
-                    type: String
-                }, 
-                Soir:{
-                    type: String
-                }
-            }
+            j2soir:{
+                type: Boolean
+            },
+            j3matin:{
+                type: Boolean
+            },
+            j3midi:{
+                type: Boolean
+            },
+            j3soir:{
+                type: Boolean
+            },
+            j4matin:{
+                type: Boolean
+            },
+            j4midi:{
+                type: Boolean
+            },
+            j4soir:{
+                type: Boolean
+            },
+            j5matin:{
+                type: Boolean
+            },
+            j5midi:{
+                type: Boolean
+            },
+            j5soir:{
+                type: Boolean
+            },
+            j6matin:{
+                type: Boolean
+            },
+            j6midi:{
+                type: Boolean
+            },
+            j6soir:{
+                type: Boolean
+            },
+            
+            
         }
     ],
 
-    t42:[
-        {
-            type: String
-        }
-    ],
-    t41:[
-        {
-            type: String
-        }
-    ],
-    t40:[
-        {
-            type: String
-        }
-    ],
-    t39:[
-        {
-            type: String
-        }
-    ],
-    t38:[
-        {
-            type: String
-        }
-    ],
-    t37:[
-        {
-            type: String
-        }
-    ],
-    t36:[
-        {
-            type: String
-        }
-    ],
-    t35:[
-        {
-            type: String
-        }
-    ],
+    t42:{
+        type: Number
+    },
+    t41:{
+        type: Number
+    },
+    t40:{
+        type: Number
+    },
+    t39:{
+        type: Number
+    },
+    t38:{
+        type: Number
+    },
+    t37:{
+        type: Number
+    },
+    t36:{
+        type: Number
+    },
+    t35:{
+        type: Number
+    },
     examensComplementaires:[
         {
             type: String

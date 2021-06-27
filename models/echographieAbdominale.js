@@ -5,113 +5,99 @@ const echographieAbdominaleSchema= new Schema({
     indications:{
         type: String
     },
-    age:{
-        type: Number
+    
+    lobeDroit:{
+        type: String
     },
-    foie:{
-        taille:{
-            lobeDroit:{
-                type: Number
-            },
-            lobeGauche:{
-                type: Number
-            },
-            flecheHepatique:{
-                type: Number
-            }
-        },
-
-        echostructure:{
-            type: String
-        },
-
-        contours:{
-            type: String
-        },
-
-        autres:{
-            type: String
-        }
+    lobeGauche:{
+        type: String
+    },
+    flecheHepatique:{
+        type: String
     },
 
-    troncPorteVeinesHepatiques:{
+    echostructure:{
+        type: String
+    },
+
+    contours:{
+        type: String
+    },
+
+    autres:{
+        type: String
+    },
+
+
+    tpvh:{
         type: String
     },
     vesiculeBiliaire:{
         type: String
     },
 
-    pancreas:{
-        taille:{
-            type: Number
-        },
-        echostructure:{
-            type: String
-        },
-
-        contours:{
-            type: String
-        },
-
-        autres:{
-            type: String
-        }
+ 
+    taillePancreas:{
+        type: String
     },
-    rate:{
-        taille:{
-            type: Number
-        },
-        echostructure:{
-            type: String
-        },
-
-        contours:{
-            type: String
-        },
-
-        autres:{
-            type: String
-        }
+    echostructurePancreas:{
+        type: String
     },
 
-    reins:{
-        droit:{
-            taille:{
-                type: Number
-            },
-            echostructure:{
-                type: String
-            },
-            cavitePyelocalicielles:{
-                type: String
-            }
-        },
-        gauche:{
-            taille:{
-                type: Number
-            },
-            echostructure:{
-                type: String
-            },
-            cavitePyelocalicielles:{
-                type: String
-            }
-        },
+    contoursPancreas:{
+        type: String
     },
 
-    vessie:{
-        contours:{
-            type: String
-        },
-        contenu:{
-            type: String
-        },
-        parois:{
-            type: String
-        },
-        taille:{
-            type: Number
-        }
+    autresPancreas:{
+        type: String
+    },
+
+    tailleRate:{
+        type: String
+    },
+    echostructureRate:{
+        type: String
+    },
+
+    contoursRate:{
+        type: String
+    },
+
+    autresRate:{
+        type: String
+    },
+
+    tailleDroitReins:{
+        type: String
+    },
+    echostructureDroitReins:{
+        type: String
+    },
+    cavitePyelocalicielleDroit:{
+        type: String
+    },
+        
+    tailleGaucheReins:{
+        type: String
+    },
+    echostructureGaucheReins:{
+        type: String
+    },
+    cavitePyelocalicielleGauche:{
+        type: String
+    },
+
+    contoursVessie:{
+        type: String
+    },
+    contenuVessie:{
+        type: String
+    },
+    paroisVessie:{
+        type: String
+    },
+    mesureParoisVessie:{
+        type: String
     },
     
     conclusion:{

@@ -12,14 +12,16 @@ router.post('/add', auth, (req, res)=>{
 
     const newBilletDeSortie= new BilletDeSortie({
         visiteRetour: req.body.visiteRetour,
-        ordonnanceSortie: req.body.ordonnanceSortie,
+        ordonnanceSortie1: req.body.ordonnanceSortie1,
+        ordonnanceSortie2: req.body.ordonnanceSortie2,
+        ordonnanceSortie3: req.body.ordonnanceSortie3,
         dateSortie: req.body.dateSortie,
         diagnosticRetenu: req.body.diagnosticRetenu,
         dureeHospitalisation: req.body.dureeHospitalisation,
         finPeriode: req.body.finPeriode,
         debutPeriode: req.body.debutPeriode,
         createdBy: decodedToken.id,
-        patient: req.body.id,
+        patient: req.body.patient,
         motifHospitalisation: req.body.motifHospitalisation
     })
 
