@@ -8,9 +8,6 @@ const bulletinExamenSchema= new Schema({
     reponse:{
         type: String
     },
-    age:{
-        type: Number
-    },
 
     date: {
         type: Date,

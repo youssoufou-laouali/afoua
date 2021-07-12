@@ -2,25 +2,25 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const dossierSchema= new Schema({
-    adresse:{
+    sexe: {
         type: String
     },
-    observationDr:{
-        type: Number
+    adresse:{
+        type: String
     },
     assure:{
         type: String
     },
-    nPolice:{
+    numPolice:{
         type: String
     },
-    nAssure:{
+    numAssure:{
         type: String
     },
-    dateEntree:{
+    entree:{
         type: Date
     },
-    dateSortie:{
+    sortie:{
         type: Date
     },
     chambre:{
@@ -41,7 +41,52 @@ const dossierSchema= new Schema({
     gynecoObstetrique:{
         type: String
     },
+    familiers:{
+        type: String
+    },
+    examenEntree:{
+        type: String
+    },
+    t:{
+        type: String
+    },
+    ta:{
+        type: String
+    },
+    poids:{
+        type: String
+    },
+    etatGeneral:{
+        type: String
+    },
+    coeur:{
+        type: String
+    },
+    poumons:{
+        type: String
+    },
+    abd:{
+        type: String
+    },
+    orl:{
+        type: String
+    },
+    autresApp:{
+        type: String
+    },
     resume:{
+        type: String
+    },
+    examenDemandes:{
+        type: String
+    },
+    diagnosticRetenu:{
+        type: String
+    },
+    conduiteTenir:{
+        type: String
+    },
+    observations:{
         type: String
     },
     date: {
@@ -56,24 +101,10 @@ const dossierSchema= new Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: "patient"
     },
-    compteRenduHospitalisation : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref: "compterenduhospitalisation"
-    },
     examensUlterieurs:[
         {
-            dateHeureMedecin: {
-                type: String
-            },
-            compteRendu:{
-                type: String
-            },
-            modification:{
-                type: String
-            }
-
-        }
-    ]
+        },
+    ],
 })
 
 module.exports= Dossier = mongoose.model('dossier', dossierSchema)

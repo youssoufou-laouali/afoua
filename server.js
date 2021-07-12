@@ -30,6 +30,11 @@ const echograhieAbdominale= require('./routes/api/echographieAbdominale')
 const echoVesicoProstatique= require('./routes/api/echoVesicoProstatique')
 const billetDeSortie= require('./routes/api/billetDeSortie')
 const infirmiere= require('./routes/api/infirmiere')
+const dossier= require('./routes/api/dossierMedical')
+const consultationPediatrique= require('./routes/api/consultationPediatrique')
+const consultationGenerale= require('./routes/api/consultationGenerale')
+const imagerie= require('./routes/api/imagerie')
+const bulletinExamen= require('./routes/api/billetinExamen')
 
 const port= process.env.PORT || 5000
  
@@ -113,6 +118,16 @@ app.use('/echovesicoprostatique', echoVesicoProstatique)
 app.use('/billetsortie', billetDeSortie)
 //infirmiere
 app.use('/infirmiere', infirmiere)
+//Dossier médical
+app.use('/dossier', dossier)
+//consultationPediatrique
+app.use('/pediatrique', consultationPediatrique)
+//consultationGenerale
+app.use('/generale', consultationGenerale)
+//imagerie
+app.use('/imagerie', imagerie)
+//bulletinExamen
+app.use('/bulletinexamen', bulletinExamen)
 
 const server =http.createServer(app)
 const io = soketIo(server, 

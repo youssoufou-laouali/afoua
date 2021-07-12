@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
-const ConsultationPediatriqueSchema= new Schema({
+const ImagerieSchema= new Schema({
     
     date: {
         type: Date,
@@ -16,31 +16,21 @@ const ConsultationPediatriqueSchema= new Schema({
         ref: "patient"
     },
     
-    assurance :{
+    echographie :{
         type : String
     },
-    numAssure: {
+    observations: {
         type: String
     },
-    nomAssure: {
+    conclusion: {
         type: String
     },
-    societe: {
+    radiographie: {
         type: String
     },
-    diagnostic: {
+    rapport: {
         type: String
     },
-    dateHospitalisation: {
-        type: Date
-    },
-    timeHospitalisation: {
-        type: String
-    },
-    dureeHospitalisation: {
-        type: Number
-    }
-   
 })
 
-module.exports= ConsultationPediatrique = mongoose.model('consultationpediatrique', ConsultationPediatriqueSchema )
+module.exports= Imagerie = mongoose.model('imagerie', ImagerieSchema )

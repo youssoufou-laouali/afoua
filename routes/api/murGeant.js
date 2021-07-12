@@ -13,11 +13,19 @@ router.get('/', auth, (req, res)=>{
     murGeant.find()
     .populate({
         path: 'geant',
-        // match: {post: decodedToken.post },
         populate: {
             path: 'patient', select: 'name lastName phone dateDeNaissance lieuDeNaissance',
         },
     })
+    .then(accueil=> res.json({accueil}))
+    .catch(errors=> res.json({errors}))
+})
+
+router.post('/', auth, (req, res)=>{
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'SECRET_KEY');
+   console.log(req.body);
+    murGeant.findOneAndDelete({_id: req.body.id})
     .then(accueil=> res.json({accueil}))
     .catch(errors=> res.json({errors}))
 })
