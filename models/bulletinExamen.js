@@ -2,13 +2,9 @@ const mongoose= require('mongoose')
 const Schema= mongoose.Schema
 
 const bulletinExamenSchema= new Schema({
-    demande:{
-        type: String
+    data:{
+       
     },
-    reponse:{
-        type: String
-    },
-
     date: {
         type: Date,
         default: Date.now

@@ -11,7 +11,6 @@ router.get('/', (req, res)=>{
 router.post('/add', (req, res)=>{
     PostAgent.findById(req.body.id)
     .then(post=>{
-        console.log(post);
         post.posts.unshift(req.body.post)
         post.save()
         .then(response=>res.json(response))

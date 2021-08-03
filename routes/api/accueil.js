@@ -45,6 +45,22 @@ router.post('/add', auth, (req, res)=>{
     .catch(errors=> res.json({errors}))
 
 })
+// Ajouter une consultation sur le mur accueil destinée aux agents de la perception
+router.post('/infirmiere', auth, (req, res)=>{
+
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'SECRET_KEY'); 
+
+    Accueil.updateOne({_id: req.body.id},
+        { $set:
+            {
+                post: req.body.post,
+            }
+    })
+    .then(response=> res.json(response))
+    .catch(err=> res.json(err))
+
+})
 
 
 //valider le payement d'une consultation pour un patient et d'ajouter sur le mur medecin concerné

@@ -11,7 +11,7 @@ router.post('/add', auth, (req, res)=>{
     const decodedToken = jwt.verify(token, 'SECRET_KEY');
 
     const newBulletinExamen= new bulletinExamen({
-        demande: req.body.demande,
+        data: req.body.data,
         createdBy: decodedToken.id,
         patient: req.body.patient,
     })
@@ -28,14 +28,29 @@ router.post('/update', auth, (req, res)=>{
 
     bulletinExamen.findOneAndUpdate({_id: req.body.id, 
         $set: {
-            response: req.body.response,
+            data: req.body.data,
             createdBy2: decodedToken.id
         }
     })
+    .then(response=> res.json(response))
+    .catch(err=> res.json(err))
+})
+//infirmiere
+router.post('/infirmiere', auth, (req, res)=>{
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'SECRET_KEY');
+
+    bulletinExamen.findOneAndUpdate({_id: req.body.id, 
+        $set: {
+            data: req.body.data
+        }
+    })
+    .then(response=> res.json(response))
+    .catch(err=> res.json(err))
 })
 
-// Charger les billets de sortie d'un patient
-router.get('/', auth, (req, res)=>{
+// Charger les billetin d'examen d'un patient
+router.post('/', auth, (req, res)=>{
     bulletinExamen.find({patient: req.body.id})
         .populate('patient')
         .then(response=> res.json( response))

@@ -139,7 +139,6 @@ const io = soketIo(server,
 })
 io.on('connection', (socket) => { 
     console.log(socket.id);
-    console.log('un client est connecté');
 
     socket.emit("message", {a:'Bonjour'})
 
@@ -151,7 +150,17 @@ io.on('connection', (socket) => {
         socket.broadcast.emit("murgeant", data)
     })
 
+    socket.on("examenPerception", data=>{
+        socket.broadcast.emit("examenPerception", data)
+    })
 
+    socket.on("examenInfirmiere", data=>{
+        socket.broadcast.emit("examenInfirmiere", data)
+    })
+
+    socket.on("examenLabo", data=>{
+        socket.broadcast.emit("examenLabo", data)
+    })
 
     socket.on("disconnect", ()=>{
         console.log(socket.id);
