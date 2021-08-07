@@ -56,5 +56,12 @@ router.post('/', auth, (req, res)=>{
         .then(response=> res.json( response))
         .catch(errors=> res.json({errors}))
 })
+// rechercher un billetin d'examen
+router.post('/one', auth, (req, res)=>{
+    bulletinExamen.findById(req.body.id)
+        .populate('patient')
+        .then(response=> res.json( response))
+        .catch(errors=> res.json({errors}))
+})
 
 module.exports = router

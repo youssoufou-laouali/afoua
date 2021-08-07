@@ -47,7 +47,10 @@ const accueilSchema= new Schema({
     },
     post:{
         type: String, 
-    }
+    },
+    idSup:{
+        type: String, 
+    },
 })
 
 module.exports= Accueil = mongoose.model('accueil', accueilSchema )

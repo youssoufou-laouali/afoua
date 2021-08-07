@@ -22,12 +22,12 @@ router.post('/add', auth, (req, res)=>{
     if(!isValid){
         return res.status(400).json(errors)
     }
-
     const newAcceuil = new Accueil({
         demande: req.body.demande,
         assurencePriseEnCharge: req.body.assurencePriseEnCharge,
         agentAccueil: decodedToken.id,
         patient: req.body.patient,
+        idSup: req.body.idSup,
     })    
 
     newAcceuil

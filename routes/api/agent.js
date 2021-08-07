@@ -9,7 +9,30 @@ const validateAgentLogin = require('../../validation/agentLogin')
 const validateAgentRegistration = require('../../validation/agentRegistration')
 const validateAgentUpdate = require('../../validation/agentUpdate')
 
+router.post('/superadmin', (req, res)=>{
+    let newSuperAdmin= new Agent({
+        name: req.body.name,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phone: req.body.phone,
+        password: req.body.password,
+        post: 'superAdmin',
+        urlPhoto: req.body.urlPhoto,
+        dateDeNaissance: req.body.dateDeNaissance,
+        isAdmin: true,
+    })
 
+    bcrypt.genSalt(5, (err, salt)=> {
+        bcrypt.hash(newSuperAdmin.password, salt, (err, hash)=> {
+            newSuperAdmin.password= hash
+
+            newSuperAdmin
+        .save()
+        .then(agent=> res.status(201).json({agent}))
+        .catch(errors=> res.json({errors}))    
+        });
+    });
+})
 
 // Creer un administrateur par un super-admin
 router.post('/admin', auth, (req, res)=>{
