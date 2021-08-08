@@ -280,10 +280,20 @@ router.post('/delete', auth, (req, res)=>{
     if(!decodedToken.isAdmin){
         return res.json({errors:'Vous n\'avez pas le droit pour cette action'})
     }else{
+        let post= req.body.post;
+        let active = true;
+        if(post.charAt(0) == '_') {
+            post = post.substr(1)
+        } else {
+            post = '_' + post;
+            active = false
+        }
         Agent.updateOne({_id: req.body.id},
             {
                 $set: {
-                    active: false
+
+                    active,
+                    post,
                 }
             })
             .then(agent=> res.json({agent}))
@@ -317,6 +327,13 @@ router.get('/agent', auth, (req, res)=>{
         .then(agent=> res.json({agent}))
         .catch(errors=> res.json({errors}))
     }
+})
+router.post('/one', auth, (req, res)=>{
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'SECRET_KEY');
+        Agent.findById(req.body.id)
+        .then(agent=> res.json(agent))
+        .catch(errors=> res.json({errors}))
 })
 
 

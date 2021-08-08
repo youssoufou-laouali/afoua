@@ -26,7 +26,8 @@ router.post('/update', auth, (req, res)=>{
     const token = req.headers.authorization.split(' ')[1];
     const decodedToken = jwt.verify(token, 'SECRET_KEY');
 
-    bulletinExamen.findOneAndUpdate({_id: req.body.id, 
+    bulletinExamen.updateOne({_id: req.body.id}, 
+    {
         $set: {
             data: req.body.data,
             createdBy2: decodedToken.id
