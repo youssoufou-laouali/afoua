@@ -76,28 +76,164 @@ const infirmiereSchema= new Schema({
     ],
 
     t42:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     t41:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     t40:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     t39:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     t38:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     t37:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     t36:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     t35:{
-        type: Number
+        j1 :{
+            type: Boolean,
+        },
+        j2 :{
+            type: Boolean,
+        },
+        j3 :{
+            type: Boolean,
+        },
+        j4 :{
+            type: Boolean,
+        },
+        j5 :{
+            type: Boolean,
+        },
+        j6 :{
+            type: Boolean,
+        },
     },
     examensComplementaires:[
         {
